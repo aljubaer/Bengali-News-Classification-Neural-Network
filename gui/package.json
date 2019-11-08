@@ -1,0 +1,25 @@
+{
+    "name": "bengali-news-classifier",
+    "version": "1.0.0",
+    "description": "A news classifier tool using Neural Network",
+    "main": "index.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/aljubaer/Bengali-News-Classification-Neural-Network.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/aljubaer/Bengali-News-Classification-Neural-Network/issues"
+    },
+    "homepage": "https://github.com/aljubaer/Bengali-News-Classification-Neural-Network#readme",
+    "devDependencies": {
+        "electron": "^6.0.12"
+    },
+    "dependencies": {
+        "python-shell": "^1.0.8"
+    }
+}

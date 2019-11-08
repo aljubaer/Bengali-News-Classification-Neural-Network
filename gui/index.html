@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='./input-handler.js'></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-2" style="text-align: center; padding-top: 20px">
+                <h1>Bengali News Classification</h1>
+                <h6>Our simple tool provide 95% accuracy on classification</h6>
+                <h6>Paste any news related to: Sports, Politics, International...</h6>
+                <div class="form-group">
+                    <textarea id="newsInput" class="form-control input-lg input-general" rows="6"
+                        placeholder="Enter a news to classify" name="newsInput"></textarea>
+                    <br/>
+                    <a class="btn btn-general btn-white" role="button" onclick="onDataInput()">Submit</a>
+                    <br/>
+                </div>
+                <div style="padding: 10px">
+                    <h4 id="status"></h4>
+                    <h2 id="result"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
