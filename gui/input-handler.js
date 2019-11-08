@@ -35,7 +35,18 @@ function onDataInput() {
         //     console.log(results);
         // });
 
-        var command = 'python3.7 ' + 'data-process.py';
+        var command = 'python ' + 'data-process.py';
+        const dic = {
+            '0': 'রাজনীতি',
+            '1': 'খেলা',
+            '2': 'অর্থনীতি',
+            '3': 'অপরাধ',
+            '4': 'আন্তর্জাতিক',
+            '5': 'বিনোদন',
+            '6': 'িজ্ঞান ও প্রযুক্তি'
+        };
+        console.log(dic);
+
         const child = exec(command,
             (error, stdout, stderr) => {
                 console.log(`stdout: ${stdout}`);
@@ -44,8 +55,8 @@ function onDataInput() {
                     console.log(`exec error: ${error}`);
                 }
                 textStatus.innerText = 'Your input news is related to: ';
-                textResult.innerText = 'খেলা';
-        });
+                textResult.innerText = dic[stdout];
+            });
 
     });
 }

@@ -1,11 +1,10 @@
-from bs4 import BeautifulSoup
-import re
-import requests
+
 import json
 import nltk
-#nltk.download('punkt')
+# from flask import Flask, request, redirect, url_for, flash, jsonify
 from b_parser import RafiStemmer
-
+from vectorization import text_to_sequences
+# app = Flask(__name__)
 def valid_bengali_letters(char):
     return ord(char) >= 2433 and ord(char) <= 2543
 
@@ -27,7 +26,7 @@ def get_valid_lines(line):
 
 
 stopwords_file = open(
-    './stop_words.txt', "r+", encoding='utf-8')
+    'stop_words.txt', "r+", encoding='utf-8')
 all_stopwords = stopwords_file.read()
 stopwords_ready = [word.strip() for word in all_stopwords.split()]
 
@@ -64,9 +63,17 @@ def single_data_preprocessor(content):
 
     return content_str
 
+from keras.models import load_model
+model = load_model('seven_class_model_2.h5')
 
-with open('./input.json', encoding='utf-8') as json_file:
-    raw_data_json = json.load(json_file)
-    raw_news_data = raw_data_json['news']
-    data_processed = single_data_preprocessor(raw_news_data)
-    print(data_processed)
+json_file = open('input.json', encoding='utf-8')
+raw_data_json = json.load(json_file)
+raw_news_data = raw_data_json['news']
+data_processed = single_data_preprocessor(raw_news_data)
+# print(data_processed)
+# print(model.)
+
+ys = model.predict_classes(text_to_sequences(data_processed.split()))
+print(str(ys[0]))
+# if __name__ == '__main__':
+#     app.run(debug=True, threaded = False)
