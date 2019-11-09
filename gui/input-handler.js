@@ -16,7 +16,7 @@ function onDataInput() {
     var textInput = document.getElementById('newsInput').value;
     var textStatus = document.getElementById('status');
     var textResult = document.getElementById('result');
-    textStatus.innerText = 'Calculating result...';
+    textStatus.innerText = 'খবরের শ্রেণি খোঁজা হচ্ছে ...';
     textResult.innerText = '';
     //console.log(textInput);
     input.news = textInput;
@@ -50,12 +50,13 @@ function onDataInput() {
         const child = exec(command,
             (error, stdout, stderr) => {
                 console.log(`stdout: ${stdout}`);
+                console.log(stdout[0] + '-' + stdout[1] + '-' + stdout[2]);
                 console.log(`stderr: ${stderr}`);
                 if (error !== null) {
                     console.log(`exec error: ${error}`);
                 }
-                textStatus.innerText = 'Your input news is related to: ';
-                textResult.innerText = dic[stdout];
+                textStatus.innerText = 'আপনার খবরটির ধরন: ';
+                textResult.innerText = dic[stdout[0]];
             });
 
     });
